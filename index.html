@@ -130,11 +130,16 @@
     <button class="filter-btn" id="terraceBtn" onclick="toggleTerrace(this)">테라스 🌿</button>
   </div>
 
-  <div class="text-center mb-4" id="statusBox">
+  <div class="text-center mb-2" id="statusBox">
     <button class="filter-btn" onclick="toggleStatusFilter(this, '공실')">공실</button>
     <button class="filter-btn" onclick="toggleStatusFilter(this, '5월이후')">5월이후</button>
     <button class="filter-btn" onclick="toggleStatusFilter(this, '계약중')">계약중</button>
     <button class="filter-btn" onclick="toggleStatusFilter(this, '완료')">완료</button>
+  </div>
+
+  <div class="text-center mb-4" id="sortBox">
+    <button class="filter-btn" onclick="sortByPrice('asc')">가격 ▲</button>
+    <button class="filter-btn" onclick="sortByPrice('desc')">가격 ▼</button>
   </div>
 
   <div class="row">
@@ -178,6 +183,12 @@
     }
     if (filters.status.length > 0) {
       filtered = filtered.filter(r => filters.status.includes(r[3]));
+    }
+
+    if (currentSort === 'asc') {
+      filtered.sort((a, b) => parseInt(a[2].replace(/[^0-9]/g, '')) - parseInt(b[2].replace(/[^0-9]/g, '')));
+    } else if (currentSort === 'desc') {
+      filtered.sort((a, b) => parseInt(b[2].replace(/[^0-9]/g, '')) - parseInt(a[2].replace(/[^0-9]/g, '')));
     }
 
     filtered.forEach(row => {
@@ -233,6 +244,7 @@
     filters.direction = "전체";
     filters.terrace = false;
     filters.status = [];
+    currentSort = "default";
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     renderCards();
@@ -260,6 +272,11 @@
       filters.status.splice(idx, 1);
       btn.classList.remove('active');
     }
+    renderCards();
+  }
+
+  function sortByPrice(order) {
+    currentSort = order;
     renderCards();
   }
 
