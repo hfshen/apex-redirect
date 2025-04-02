@@ -2,75 +2,90 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
+  <title>APEX청라</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LOLOVELY :: Excel Viewer</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    /* 배경 그라디언트 애니메이션 */
     body {
       margin: 0;
       padding: 0;
-      font-family: "Pretendard", sans-serif;
-      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      background: linear-gradient(270deg, #ffdee9, #b5fffc, #d5f3ff, #c7ceea);
+      background-size: 800% 800%;
+      animation: gradientMove 20s ease infinite;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      overflow: hidden;
     }
-    header {
-      margin-top: 40px;
-      margin-bottom: 20px;
-      text-align: center;
+
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
-    header h1 {
-      font-size: 1.8rem;
-      color: #343a40;
-    }
-    .sheet-container {
-      width: 95%;
+
+    .card {
+      width: 90%;
       max-width: 1200px;
       height: 85vh;
-      background: #fff;
-      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      animation: floatCard 10s ease-in-out infinite;
     }
+
+    @keyframes floatCard {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .card h1 {
+      text-align: center;
+      color: #fff;
+      font-size: 1.8rem;
+      padding: 20px;
+      margin: 0;
+      background: rgba(0, 0, 0, 0.2);
+    }
+
+    .iframe-container {
+      flex: 1;
+    }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-    footer {
-      margin: 20px;
-      font-size: 0.9rem;
-      color: #868e96;
-    }
 
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.3rem;
-      }
-      .sheet-container {
-        height: 70vh;
+      .card h1 {
+        font-size: 1.2rem;
       }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>APEX청라</h1>
-  </header>
-
-  <div class="sheet-container">
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCvD_fBRRve27vrP6cDxtL6Q-JCZLpdQ_aTf3SD5rKhtqy7O3CdmssPUM98UJu04q-qusp60WS7An4/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" 
-      allowfullscreen>
-    </iframe>
+  <div class="card">
+    <h1>📊 APEX청라</h1>
+    <div class="iframe-container">
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCvD_fBRRve27vrP6cDxtL6Q-JCZLpdQ_aTf3SD5rKhtqy7O3CdmssPUM98UJu04q-qusp60WS7An4/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <footer>
+        ⓒ 2025 LOLOVELY. 구글 스프레드시트를 불러오는 데 시간이 걸릴 수 있습니다.
+      </footer>
   </div>
-
-  <footer>
-    ⓒ 2025 LOLOVELY. 구글 스프레드시트를 불러오는 데 시간이 걸릴 수 있습니다.
-  </footer>
 </body>
 </html>
