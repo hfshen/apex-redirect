@@ -2,38 +2,75 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>엑셀 뷰어 - APEX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOLOVELY :: Excel Viewer</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Pretendard', sans-serif;
-      background-color: #f4f4f4;
+      padding: 0;
+      font-family: "Pretendard", sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
-    .container {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-    h1 {
+    header {
+      margin-top: 40px;
+      margin-bottom: 20px;
       text-align: center;
-      color: #333;
-      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 1.8rem;
+      color: #343a40;
+    }
+    .sheet-container {
+      width: 95%;
+      max-width: 1200px;
+      height: 85vh;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
     iframe {
       width: 100%;
-      height: 80vh;
+      height: 100%;
       border: none;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      background: white;
+    }
+    footer {
+      margin: 20px;
+      font-size: 0.9rem;
+      color: #868e96;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.3rem;
+      }
+      .sheet-container {
+        height: 70vh;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>공유된 시트 미리보기</h1>
-    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCvD_fBRRve27vrP6cDxtL6Q-JCZLpdQ_aTf3SD5rKhtqy7O3CdmssPUM98UJu04q-qusp60WS7An4/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+  <header>
+    <h1>APEX청라</h1>
+  </header>
+
+  <div class="sheet-container">
+    <iframe 
+      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTCvD_fBRRve27vrP6cDxtL6Q-JCZLpdQ_aTf3SD5rKhtqy7O3CdmssPUM98UJu04q-qusp60WS7An4/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" 
+      allowfullscreen>
+    </iframe>
   </div>
+
+  <footer>
+    ⓒ 2025 LOLOVELY. 구글 스프레드시트를 불러오는 데 시간이 걸릴 수 있습니다.
+  </footer>
 </body>
 </html>
