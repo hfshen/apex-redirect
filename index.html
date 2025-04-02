@@ -5,6 +5,7 @@
   <title>APEX청라 분양정보</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -110,6 +111,28 @@
       font-size: 1.2rem;
       cursor: pointer;
     }
+
+    .pdf-btn {
+      background: linear-gradient(45deg, #4CAF50, #45a049);
+      border: none;
+      border-radius: 30px;
+      color: white;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .pdf-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+    .pdf-btn i {
+      font-size: 1.3rem;
+    }
   </style>
 </head>
 <body>
@@ -152,6 +175,17 @@
       <div id="col102"></div>
     </div>
   </div>
+</div>
+
+<div class="container text-center mt-5 mb-4">
+  <a href="/files/APEX_intro.pdf" class="pdf-btn" download>
+    <i class="fas fa-file-pdf"></i>
+    소개서 다운로드
+  </a>
+  <a href="/files/APEX_fa.pdf" class="pdf-btn" download>
+    <i class="fas fa-file-contract"></i>
+    조경 다운로드
+  </a>
 </div>
 
 <footer class="text-center mt-4">
